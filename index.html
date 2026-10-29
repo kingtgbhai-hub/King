@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App Store</title>
+    <style>
+        /* Google Fonts for clean look */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            padding: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* App Header */
+        .app-header {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #a100ff, #ff0055);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            border: 1px solid #333;
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .app-info h1 {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .app-info p {
+            font-size: 14px;
+            color: #aaaaaa;
+            margin-top: 5px;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: #333;
+        }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .star {
+            color: #ffb400;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #888888;
+            margin-top: 5px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: block;
+            width: 100%;
+            background-color: #a8c7fa;
+            color: #0b1f33;
+            text-align: center;
+            padding: 16px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 30px;
+        }
+
+        .download-btn:active {
+            background-color: #8ab4f8;
+        }
+
+        /* Screenshots */
+        .screenshots-container {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .screenshots-container::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .screenshots-container img {
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 1px solid #333;
+        }
+
+        /* About Section */
+        .about-section {
+            margin-bottom: 30px;
+        }
+
+        .about-section h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .about-section p {
+            font-size: 15px;
+            color: #cccccc;
+            line-height: 1.5;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .info-card-label {
+            font-size: 13px;
+            color: #888888;
+            margin-bottom: 5px;
+        }
+
+        .info-card-value {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #555555;
+            font-size: 14px;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- App Header -->
+    <div class="app-header">
+        <div class="app-icon">
+            <!-- Apna icon yahan lagao: <img src="icon.png" alt="Icon"> -->
+            🔥
+        </div>
+        <div class="app-info">
+            <h1>VIRAL LEAKS</h1>
+            <p>Your App Studio</p>
+            <p>In-app purchases</p>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+        <div class="stat-item">
+            <div class="stat-value">4.5 <span class="star">★</span></div>
+            <div class="stat-label">24K reviews</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">18+</div>
+            <div class="stat-label">Rated for 18+</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">6.1 MB</div>
+            <div class="stat-label">App size</div>
+        </div>
+    </div>
+
+    <!-- Download Button -->
+    <!-- Yahan 'app.apk' ki jagah apni APK ka naam daalo -->
+    <a href="app.apk" download class="download-btn">Download</a>
+
+    <!-- Screenshots -->
+    <div class="screenshots-container">
+        <!-- Yahan apni screenshots ke naam daalo -->
+        <img src="https://via.placeholder.com/150x250/333/fff?text=Screenshot+1" alt="Screenshot 1">
+        <img src="https://via.placeholder.com/150x250/333/fff?text=Screenshot+2" alt="Screenshot 2">
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <h2>About this app</h2>
+        <p>ViralLeaks app is fully free. just 1₹ trial and enjoy all premium videos. (Yahan apna description likho LO).</p>
+    </div>
+
+    <!-- Info Grid -->
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="info-card-label">Version</div>
+            <div class="info-card-value">1.0.0</div>
+        </div>
+        <div class="info-card">
+            <div class="info-card-label">Updated</div>
+            <div class="info-card-value">July 2026</div>
+        </div>
+        <div class="info-card">
+            <div class="info-card-label">Downloads</div>
+            <div class="info-card-value">1M+ Downloads</div>
+        </div>
+        <div class="info-card">
+            <div class="info-card-label">Content Rating</div>
+            <div class="info-card-value">18+</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2026 Your App Studio
+    </div>
+
+</body>
+</html>
