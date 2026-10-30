@@ -5,84 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIGHT PLAY VIDEO CALL</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            background-color: #050505; 
-            color: #ffffff; 
-            font-family: 'Poppins', sans-serif; 
-            padding: 20px; 
-            max-width: 600px; 
-            margin: 0 auto; 
-        }
-        
+        body { background-color: #121212; color: #ffffff; font-family: 'Roboto', sans-serif; padding: 15px; max-width: 600px; margin: 0 auto; }
         .app-header { display: flex; align-items: center; margin-top: 20px; margin-bottom: 25px; }
         
-        .app-icon { 
-            width: 90px; 
-            height: 90px; 
-            background: #111; 
-            border-radius: 20px; 
-            margin-right: 15px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            overflow: hidden; 
-            border: 2px solid #ff0055; 
-            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
-        }
+        .app-icon { width: 90px; height: 90px; background: #222; border-radius: 20px; margin-right: 15px; border: 1px solid #333; overflow: hidden; }
         .app-icon img { width: 100%; height: 100%; object-fit: cover; }
         
-        .app-info h1 { font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: 1px; }
-        .app-info p { font-size: 13px; color: #aaaaaa; margin-top: 3px; }
-        
-        .stats-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding: 0 10px; }
+        .app-info h1 { font-size: 22px; font-weight: 900; letter-spacing: 1px; }
+        .app-info p { font-size: 14px; color: #aaaaaa; margin-top: 5px; }
+        .stats-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 0 10px; }
         .stat-item { text-align: center; flex: 1; position: relative; }
-        .stat-item:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background-color: #333333; }
-        .stat-value { font-size: 18px; font-weight: 700; color: #ffffff; display: flex; justify-content: center; align-items: center; gap: 5px; }
+        .stat-item:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background-color: #333; }
+        .stat-value { font-size: 16px; font-weight: 700; display: flex; justify-content: center; align-items: center; gap: 5px; }
         .star { color: #ffb400; }
         .stat-label { font-size: 12px; color: #888888; margin-top: 5px; }
+        .download-btn { display: block; width: 100%; background-color: #a8c7fa; color: #0b1f33; text-align: center; padding: 16px; border-radius: 25px; font-size: 18px; font-weight: 700; text-decoration: none; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(168, 199, 250, 0.2); }
+        .screenshots-container { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 15px; margin-bottom: 20px; scrollbar-width: none; }
+        .screenshots-container::-webkit-scrollbar { display: none; }
         
-        .download-btn { 
-            display: block; 
-            width: 100%; 
-            background: linear-gradient(90deg, #ff0055, #ff4d88); 
-            color: #ffffff; 
-            text-align: center; 
-            padding: 18px; 
-            border-radius: 30px; 
-            font-size: 18px; 
-            font-weight: 700; 
-            text-decoration: none; 
-            margin-bottom: 35px; 
-            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.4); 
-        }
-        
-        .features-container { display: flex; flex-direction: column; gap: 15px; margin-bottom: 35px; }
-        
-        .feature-box { 
-            background: #111111; 
-            padding: 20px; 
-            border-radius: 15px; 
-            border-left: 4px solid #ff0055; 
-            border-top: 1px solid #222;
-            border-right: 1px solid #222;
-            border-bottom: 1px solid #222;
-        }
-        .feature-box h3 { font-size: 18px; margin-bottom: 5px; color: #ffffff; }
-        .feature-box p { font-size: 14px; color: #aaaaaa; }
+        .screenshots-container img { height: 350px; border-radius: 15px; object-fit: cover; border: 1px solid #333; }
         
         .about-section { margin-bottom: 30px; }
-        .about-section h2 { font-size: 20px; margin-bottom: 10px; font-weight: 700; color: #ffffff; }
-        .about-section p { font-size: 14px; color: #aaaaaa; line-height: 1.6; }
-        
+        .about-section h2 { font-size: 20px; margin-bottom: 10px; font-weight: 700; }
+        .about-section p { font-size: 15px; color: #cccccc; line-height: 1.5; }
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
-        .info-card { background-color: #111111; padding: 15px; border-radius: 12px; border: 1px solid #222; }
-        .info-card-label { font-size: 12px; color: #888888; margin-bottom: 5px; }
-        .info-card-value { font-size: 16px; font-weight: 700; color: #ffffff; }
-        
-        .footer { text-align: center; color: #444444; font-size: 13px; padding: 20px 0; border-top: 1px solid #222; }
+        .info-card { background-color: #1e1e1e; padding: 15px; border-radius: 12px; border: 1px solid #2a2a2a; }
+        .info-card-label { font-size: 13px; color: #888888; margin-bottom: 5px; }
+        .info-card-value { font-size: 16px; font-weight: 700; }
+        .footer { text-align: center; color: #555555; font-size: 14px; padding: 20px 0; }
     </style>
 </head>
 <body>
@@ -93,8 +45,8 @@
         </div>
         <div class="app-info">
             <h1>NIGHT PLAY VIDEO CALL</h1>
-            <p>Meet & Connect</p>
-            <p>Free to use</p>
+            <p>Your App Studio</p>
+            <p>In-app purchases</p>
         </div>
     </div>
 
@@ -104,8 +56,8 @@
             <div class="stat-label">24K reviews</div>
         </div>
         <div class="stat-item">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Safe & Secure</div>
+            <div class="stat-value">18+</div>
+            <div class="stat-label">Rated for 18+</div>
         </div>
         <div class="stat-item">
             <div class="stat-value">6.1 MB</div>
@@ -115,24 +67,16 @@
 
     <a href="nightplay.apk" download class="download-btn">Download Now</a>
 
-    <div class="features-container">
-        <div class="feature-box">
-            <h3>💬 Private Chat</h3>
-            <p>Chat securely with your new friends.</p>
-        </div>
-        <div class="feature-box">
-            <h3>📹 Video Calls</h3>
-            <p>Meet face-to-face with high quality video.</p>
-        </div>
-        <div class="feature-box">
-            <h3>🛡️ 100% Safe</h3>
-            <p>Your privacy is our top priority.</p>
-        </div>
+    <!-- Yahan tumhari 3 screenshots aayengi -->
+    <div class="screenshots-container">
+        <img src="ss1.jpg" alt="Screenshot 1">
+        <img src="ss2.jpg" alt="Screenshot 2">
+        <img src="ss3.jpg" alt="Screenshot 3">
     </div>
 
     <div class="about-section">
         <h2>About this app</h2>
-        <p>Night Play Video Call is a friendly platform where you can meet new people, make friends, and share your day with secure video calls. It's completely free and safe.</p>
+        <p>Night Play Video Call is a friendly platform where you can meet new people, make friends, and enjoy high quality video calls securely.</p>
     </div>
 
     <div class="info-grid">
@@ -145,12 +89,12 @@
             <div class="info-card-value">Oct 2026</div>
         </div>
         <div class="info-card">
-            <div class="info-card-label">Category</div>
-            <div class="info-card-value">Social</div>
+            <div class="info-card-label">Downloads</div>
+            <div class="info-card-value">1M+</div>
         </div>
         <div class="info-card">
-            <div class="info-card-label">Rating</div>
-            <div class="info-card-value">Everyone</div>
+            <div class="info-card-label">Content Rating</div>
+            <div class="info-card-value">18+</div>
         </div>
     </div>
 
